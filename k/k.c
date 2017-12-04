@@ -22,11 +22,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 #include <k/kstd.h>
-
 #include "multiboot.h"
 #include "io.h"
 
-
+void load_gdt();
 void k_main(unsigned long magic, multiboot_info_t *info)
 {
 	(void)magic;
