@@ -24,6 +24,7 @@
 #include <k/kstd.h>
 
 #include "multiboot.h"
+#include "io.h"
 
 
 void k_main(unsigned long magic, multiboot_info_t *info)
@@ -31,8 +32,13 @@ void k_main(unsigned long magic, multiboot_info_t *info)
 	(void)magic;
 	(void)info;
 
+	init_com();
+	load_gdt();
+
 	char star[4] = "|/-\\";
 	char *fb = (void *)0xb8000;
+
+	printf("Hello world");
 
 	for (unsigned i = 0; ; ) {
 		*fb = star[i++ % 4];
